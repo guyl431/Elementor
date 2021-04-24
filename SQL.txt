@@ -1,0 +1,34 @@
+question 1 ----
+
+
+SELECT
+  employee_id
+  department_id,
+  MAX(salary),
+  (MAX(salary) - (SELECT
+    MAX(salary)
+  FROM employees
+  WHERE department_id = yt.department_id
+  AND salary <
+  MAX(yt.salary))
+  ) diff
+FROM employees yt
+GROUP BY department_id
+ORDER BY department_id
+
+
+question 2 ----- 
+
+
+
+
+SELECT number_of_visitors  FROM  site_visitors A , promotion_dates B 
+ WHERE A.site = B.site
+ A.date  between B.start_date and B.end_date
+ and site = x 
+ AS  'total on promotion dates' 
+ 
+ 
+SELECT number_of_visitors  FROM  site_visitors A 
+where site = x
+as 'total visitors'
